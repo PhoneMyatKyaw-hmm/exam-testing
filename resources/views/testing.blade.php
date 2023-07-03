@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    Example
+    @foreach ($exams as $exam)
+        <div>{{ $exam->id }}</div>
+        <div>{{ $exam->name }}</div>
+    @endforeach
 </body>
 
 </html>

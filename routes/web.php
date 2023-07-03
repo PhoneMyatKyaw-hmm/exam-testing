@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\TestingController;
@@ -23,4 +24,4 @@ Route::get('sendbasicemail', 'MailController@basic_email');
 Route::get('sendhtmlemail', 'MailController@html_email');
 Route::get('sendattachmentemail', 'MailController@attachment_email');
 
-Route::get('testing', [TestingController::class, 'index']);
+Route::get('testing', [ExamController::class, 'index']);

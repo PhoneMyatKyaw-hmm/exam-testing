@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Exam extends Model
 {
     use HasFactory;
+    protected $table = 'exams';
 
     public function questions(): BelongsToMany
     {
