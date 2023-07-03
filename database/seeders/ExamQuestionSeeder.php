@@ -16,8 +16,8 @@ class ExamQuestionSeeder extends Seeder
         Exam::find(1)->questions()->attach([1]);
         Exam::find(1)->questions()->attach([2]);
         Exam::find(1)->questions()->attach([3]);
-        Exam::find(1)->questions()->attach([4]);
-        Exam::find(1)->questions()->attach([5]);
-        Exam::find(1)->questions()->attach([6]);
+        Exam::find(2)->questions()->attach([4]);
+        Exam::find(2)->questions()->attach([5]);
+        Exam::find(2)->questions()->attach([6]);
     }
 }

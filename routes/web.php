@@ -20,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('sendbasicemail', 'MailController@basic_email');
-Route::get('sendhtmlemail', 'MailController@html_email');
-Route::get('sendattachmentemail', 'MailController@attachment_email');
-
 Route::get('testing', [ExamController::class, 'index']);
+
+Route::get('exams/{id}', [ExamController::class, 'show']);
+
+Route::post('exams', [ExamController::class, 'store'])->name('answer_store');
