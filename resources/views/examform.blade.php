@@ -35,8 +35,8 @@
                         <span id="index">{{ session('index') + 1 }}</span> /
                         <span id="length">{{ session('number_of_questions') }}</span>
                     </div>
-                    <div class="bg-wbc-100 text-white py-1 px-2 rounded-md mr-2">
-                        1 : 30 : 45
+                    <div id="timer" class="bg-wbc-100 text-white py-1 px-2 rounded-md mr-2">
+                        0:00:00
                     </div>
                 </div>
                 <div class="bg-blue-100 mb-2">
@@ -126,6 +126,15 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
     <script>
+        function updateTimerDisplay(remainingTime) {
+            var hours = Math.floor(remainingTime / 3600);
+            var minutes = Math.floor((remainingTime % 3600) / 60);
+            var seconds = remainingTime % 60;
+
+            var timerText = hours + ":" + minutes + ":" + seconds;
+            $('#timer').text(timerText);
+        }
+
         $(document).ready(function() {
 
             if ($("#index").text() < $("#length").text()) {
@@ -136,6 +145,22 @@
                 $("#next").prop('disabled', true)
             }
 
+            function updateTimer() {
+                $.ajax({
+                    url: "{{ route('timer.index') }}",
+                    dataType: 'json',
+                    success: function(response) {
+                        var remainingTime = response.remainingTime;
+                        if (remainingTime <= 0) {
+                            clearInterval(timerInterval);
+                            $('#timer').text("Timer Expired");
+                        } else {
+                            updateTimerDisplay(remainingTime);
+                        }
+                    }
+                });
+            }
+            setInterval(updateTimer, 1000);
         });
     </script>
 

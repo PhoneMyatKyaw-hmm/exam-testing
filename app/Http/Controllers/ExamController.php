@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Exam;
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -16,6 +17,9 @@ class ExamController extends Controller
 
     public function show($id)
     {
+        $endTime = Carbon::now()->addHours(2);
+        session(['endTime' => $endTime]);
+
         $question_ids = Exam::findOrFail($id)->questions()->pluck('id')->toArray();
         $index = 0;
         session(['exam_id' => $id]);
