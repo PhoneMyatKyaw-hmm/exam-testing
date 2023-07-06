@@ -10,9 +10,8 @@ class TimeController extends Controller
     public function index()
     {
         $startTime = Carbon::now();
-        $endTime = session('endTime'); // Set the end time as the current time plus 2 hours
+        $endTime = session('endTime');
         $remainingTime = $startTime->diffInSeconds($endTime);
-        //$remainingTime = $endTime->diffInSeconds();
         return response()->json(['remainingTime' => $remainingTime]);
     }
 }

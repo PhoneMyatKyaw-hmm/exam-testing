@@ -70,6 +70,7 @@
                 <div>
                     <form action="{{ route('answer_store') }}" method="POST" id="answer">
                         @csrf
+                        <input type="hidden" name="input_timer" id="input_timer" value="">
                         <ul class="grid grid-cols-4 bg-blue-100 items-center mx-5 md:mx-80">
                             <li class="mx-auto my-2">
                                 <input type="radio" id="A" name="Options" value="A"
@@ -133,6 +134,7 @@
 
             var timerText = hours + ":" + minutes + ":" + seconds;
             $('#timer').text(timerText);
+            $("#input_timer").val(timerText);
         }
 
         $(document).ready(function() {
@@ -152,7 +154,6 @@
                     success: function(response) {
                         var remainingTime = response.remainingTime;
                         if (remainingTime <= 0) {
-                            clearInterval(timerInterval);
                             $('#timer').text("Timer Expired");
                         } else {
                             updateTimerDisplay(remainingTime);

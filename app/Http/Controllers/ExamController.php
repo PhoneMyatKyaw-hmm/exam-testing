@@ -17,7 +17,7 @@ class ExamController extends Controller
 
     public function show($id)
     {
-        $endTime = Carbon::now()->addHours(2);
+        $endTime = Carbon::now()->addMinutes(1);
         session(['endTime' => $endTime]);
 
         $question_ids = Exam::findOrFail($id)->questions()->pluck('id')->toArray();
@@ -49,5 +49,11 @@ class ExamController extends Controller
             'question' => $question,
             'index' => $index,
         ]);
+    }
+
+    public function submit()
+    {
+        session()->flush();
+        return view('testing');
     }
 }

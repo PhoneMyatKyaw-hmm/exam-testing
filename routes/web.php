@@ -29,3 +29,5 @@ Route::get('exams/{id}', [ExamController::class, 'show']);
 Route::post('exams', [ExamController::class, 'store'])->name('answer_store');
 
 Route::get('/timer', [TimeController::class, 'index'])->name('timer.index');
+
+Route::get('testing', [ExamController::class, 'submit'])->name('submit');
