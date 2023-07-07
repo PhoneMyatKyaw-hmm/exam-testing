@@ -16,15 +16,17 @@
         <!--Nav Bar-->
         <div class="h-14 bg-white shadow flex items-center justify-between">
             <div class="font-semibold text-2xl pl-4">Exam</div>
-            <div class="group relative z-0 mr-3">
-                <div
-                    class="w-0 h-full bg-wbc-100 rounded-md absolute inset-0 ease-in-out duration-500 transition-all group-hover:w-full -z-10">
+            <a id="finish_exam" href="{{ route('finish_exam') }}">
+                <div class="group relative z-0 mr-3">
+                    <div
+                        class="w-0 h-full bg-wbc-100 rounded-md absolute inset-0 ease-in-out duration-500 transition-all group-hover:w-full -z-10">
+                    </div>
+                    <button
+                        class="shadow-md rounded-md py-2 px-4 mr-3 w-full font-semibold border border-wbc-100 transition-colors duration-300 ease-in-out group-hover:text-white z-10">
+                        Submit
+                    </button>
                 </div>
-                <button form="answer" type="submit"
-                    class="shadow-md rounded-md py-2 px-4 mr-3 w-full font-semibold border border-wbc-100 transition-colors duration-300 ease-in-out group-hover:text-white z-10">
-                    Sumit
-                </button>
-            </div>
+            </a>
         </div>
         <div class="md:flex">
             <div class="hidden md:block bg-blue-100 w-20"></div>
@@ -102,7 +104,7 @@
 
                 {{-- {{ $questions->links('vendor.pagination.custom') }} --}}
                 <div class="flex justify-around my-3 bg-blue-100 mx-7 md:mx-0 md:my-10">
-                    <button id="back"
+                    {{-- <button id="back"
                         class="bg-white shadow-md rounded-lg py-2 px-3 border-2 flex transition ease-in delay-100 hover:bg-wbc-100 hover:text-white hover:shadow-inner">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-5 h-5">
@@ -110,7 +112,7 @@
                                 d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
                         </svg>
                         <div class="pl-2">Back</div>
-                    </button>
+                    </button> --}}
                     <button id="next"
                         class="bg-white shadow-md rounded-lg py-2 px-3 border-2 flex transition ease-in delay-100 hover:bg-wbc-100 hover:text-white hover:shadow-inner">
                         <div class="pr-2">Next</div>
@@ -145,6 +147,7 @@
                 })
             } else {
                 $("#next").prop('disabled', true)
+                $("#next").
             }
 
             function updateTimer() {
@@ -155,6 +158,7 @@
                         var remainingTime = response.remainingTime;
                         if (remainingTime <= 0) {
                             $('#timer').text("Timer Expired");
+                            window.location.href = $("#finish_exam").attr('href');
                         } else {
                             updateTimerDisplay(remainingTime);
                         }
