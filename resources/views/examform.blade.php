@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-blue-100">
     <div class="bg-blue-100">
         <!--Nav Bar-->
         <div class="h-14 bg-white shadow flex items-center justify-between">
@@ -48,25 +48,44 @@
                             {{ $question->name }}
                         </p>
                     </div>
+                    <div class="bg-white rounded w-1/2 p-2 shadow-md mx-2 mb-2">
+                        <img class=" object-fill" src="{{ asset('images/test-image-2.jpg') }}" alt="question_name">
+                    </div>
                     <div class="bg-white rounded-lg p-2 shadow-md m-2">
                         <div class="inline bg-wbc-100 px-1 text-white shadow">A</div>
                         <p class="inline break-normal">
                             {{ $question->optionA }}
                         </p>
                     </div>
+                    <div class="bg-white rounded w-80 p-2 shadow-md mx-2 mb-2 relative">
+                        <div class="bg-wbc-100 px-1 text-white shadow absolute">A</div>
+                        <img class=" object-fill w-80" src="{{ asset('images/dog-photo.jpg') }}" alt="question_name">
+                    </div>
                     <div class="bg-white rounded-lg p-2 shadow-md m-2">
                         <div class="inline bg-wbc-100 px-1 text-white shadow">B</div>
                         <p class="inline break-normal">{{ $question->optionB }}</p>
+                    </div>
+                    <div class="bg-white rounded w-80 p-2 shadow-md mx-2 mb-2">
+                        <div class="bg-wbc-100 px-1 text-white shadow absolute">B</div>
+                        <img class=" object-fill w-80" src="{{ asset('images/dog-photo.jpg') }}" alt="question_name">
                     </div>
                     <div class="bg-white rounded-lg p-2 shadow-md m-2">
                         <div class="inline bg-wbc-100 px-1 text-white shadow">C</div>
                         <p class="inline break-normal">{{ $question->optionC }}</p>
                     </div>
-                    <div class="bg-white rounded-lg p-2 shadow-md mx-2 mt-2">
+                    <div class="bg-white rounded w-80 p-2 shadow-md mx-2 mb-2">
+                        <div class="bg-wbc-100 px-1 text-white shadow absolute">C</div>
+                        <img class=" object-fill w-80" src="{{ asset('images/dog-photo.jpg') }}" alt="question_name">
+                    </div>
+                    <div class="bg-white rounded-lg p-2 shadow-md mx-2 mb-2 mt-2">
                         <div class="inline bg-wbc-100 px-1 text-white shadow">D</div>
                         <p class="inline break-normal">
                             {{ $question->optionA }}
                         </p>
+                    </div>
+                    <div class="bg-white rounded w-80 p-2 shadow-md mx-2 mb-2">
+                        <div class="bg-wbc-100 px-1 text-white shadow absolute">D</div>
+                        <img class=" object-fill w-80" src="{{ asset('images/dog-photo.jpg') }}" alt="question_name">
                     </div>
                 </div>
                 <div>
@@ -116,8 +135,8 @@
                     <button id="next"
                         class="bg-white shadow-md rounded-lg py-2 px-3 border-2 flex transition ease-in delay-100 hover:bg-wbc-100 hover:text-white hover:shadow-inner">
                         <div class="pr-2">Next</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-5 h-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15 15l6-6m0 0l-6-6m6 6H9a6 6 0 000 12h3" />
                         </svg>
